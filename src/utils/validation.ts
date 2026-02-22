@@ -69,4 +69,27 @@ export const validators = {
     }
     return { isValid: true };
   },
+
+  teammateMinecraftUsername: (value: string): ValidationResult => {
+    if (!value.trim()) {
+      return { isValid: true }; // Optional field
+    }
+    if (value.length < 3 || value.length > 16) {
+      return { isValid: false, error: 'Username must be 3-16 characters' };
+    }
+    if (!/^[a-zA-Z0-9_]+$/.test(value)) {
+      return { isValid: false, error: 'Username can only contain letters, numbers, and underscores' };
+    }
+    return { isValid: true };
+  },
+
+  teammateDiscordUsername: (value: string): ValidationResult => {
+    if (!value.trim()) {
+      return { isValid: true }; // Optional field
+    }
+    if (value.length < 2 || value.length > 32) {
+      return { isValid: false, error: 'Discord username must be 2-32 characters' };
+    }
+    return { isValid: true };
+  },
 };
