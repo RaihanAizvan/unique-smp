@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
+import { content } from '../constants/content';
 import { Button } from '../components/Button';
 
 /**
@@ -13,7 +13,7 @@ import { Button } from '../components/Button';
  * - Premium dark aesthetic
  */
 export function Footer() {
-  const { t } = useLanguage();
+  const t = content;
   
   return (
     <footer className="bg-black border-t border-neutral-900 py-12">

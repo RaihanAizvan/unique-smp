@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
+import { content } from '../constants/content';
 import { Section } from '../components/Section';
 import { Canvas } from '@react-three/fiber';
 import { PlatformIcon } from '../components/PlatformIcon';
@@ -15,7 +15,7 @@ import { Suspense } from 'react';
  * - Emphasis on seamless crossplay
  */
 export function CrossPlatform() {
-  const { t } = useLanguage();
+  const t = content;
   
   return (
     <Section id="crossplatform" background="secondary">
