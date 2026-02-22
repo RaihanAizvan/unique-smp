@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Pickaxe, MessageSquare, Shield, Gamepad2, Users, ShoppingBag } from 'lucide-react';
 import { content } from '../constants/content';
 import { Section } from '../components/Section';
 import { Card } from '../components/Card';
