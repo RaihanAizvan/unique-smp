@@ -5,7 +5,7 @@ import { Button } from './Button';
 import { LoadingSpinner } from './LoadingSpinner';
 import { Alert } from './Alert';
 import { useWhitelistForm } from '../hooks/useWhitelistForm';
-import type { WhitelistApplication } from '../utils/discord';
+import type { WhitelistApplication, Teammate } from '../utils/discord';
 
 /**
  * WhitelistForm Component
@@ -34,6 +34,39 @@ export function WhitelistForm() {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleTeammateToggle = (checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      hasTeammates: checked,
+      teammates: checked ? [{ minecraftUsername: '', discordUsername: '' }] : [],
+    }));
+  };
+
+  const addTeammate = () => {
+    if ((formData.teammates?.length || 0) < 3) {
+      setFormData(prev => ({
+        ...prev,
+        teammates: [...(prev.teammates || []), { minecraftUsername: '', discordUsername: '' }],
+      }));
+    }
+  };
+
+  const removeTeammate = (index: number) => {
+    setFormData(prev => ({
+      ...prev,
+      teammates: prev.teammates?.filter((_, i) => i !== index) || [],
+    }));
+  };
+
+  const handleTeammateChange = (index: number, field: keyof Teammate, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      teammates: prev.teammates?.map((teammate, i) => 
+        i === index ? { ...teammate, [field]: value } : teammate
+      ) || [],
     }));
   };
 
