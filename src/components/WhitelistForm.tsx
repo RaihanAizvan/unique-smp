@@ -202,6 +202,85 @@ export function WhitelistForm() {
             disabled={isSubmitting}
           />
 
+          {/* Teammates Section */}
+          <div className="border-t border-neutral-800 pt-6">
+            <div className="flex items-center gap-3 mb-4">
+              <input
+                type="checkbox"
+                id="hasTeammates"
+                checked={formData.hasTeammates}
+                onChange={(e) => handleTeammateToggle(e.target.checked)}
+                disabled={isSubmitting}
+                className="w-5 h-5 bg-neutral-900 border-2 border-neutral-800 rounded focus:ring-2 focus:ring-red-600 focus:outline-none cursor-pointer"
+              />
+              <label htmlFor="hasTeammates" className="text-sm font-semibold text-neutral-300 cursor-pointer">
+                I'm applying with teammates (max 3)
+              </label>
+            </div>
+
+            {formData.hasTeammates && (
+              <div className="space-y-4 mt-6">
+                <p className="text-sm text-neutral-400 mb-4">
+                  According to server rules, teams can have up to 4 members total (you + 3 teammates).
+                </p>
+
+                {formData.teammates?.map((teammate, index) => (
+                  <div 
+                    key={index}
+                    className="bg-neutral-900/30 border border-neutral-800 rounded-lg p-4 space-y-4"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-sm font-bold text-white">
+                        Teammate {index + 1}
+                      </h4>
+                      {formData.teammates && formData.teammates.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => removeTeammate(index)}
+                          disabled={isSubmitting}
+                          className="text-red-400 hover:text-red-300 text-sm font-semibold transition-colors"
+                        >
+                          Remove
+                        </button>
+                      )}
+                    </div>
+
+                    <FormInput
+                      label="Minecraft Username"
+                      name={`teammate-${index}-mc`}
+                      type="text"
+                      placeholder="Steve123"
+                      value={teammate.minecraftUsername}
+                      onChange={(e) => handleTeammateChange(index, 'minecraftUsername', e.target.value)}
+                      disabled={isSubmitting}
+                    />
+
+                    <FormInput
+                      label="Discord Username"
+                      name={`teammate-${index}-dc`}
+                      type="text"
+                      placeholder="username or username#0000"
+                      value={teammate.discordUsername}
+                      onChange={(e) => handleTeammateChange(index, 'discordUsername', e.target.value)}
+                      disabled={isSubmitting}
+                    />
+                  </div>
+                ))}
+
+                {(formData.teammates?.length || 0) < 3 && (
+                  <button
+                    type="button"
+                    onClick={addTeammate}
+                    disabled={isSubmitting}
+                    className="w-full py-3 bg-neutral-900 border-2 border-neutral-800 border-dashed rounded-lg text-neutral-400 hover:text-white hover:border-red-600 transition-all duration-200 font-semibold"
+                  >
+                    + Add Another Teammate
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+
           {/* Submit Button */}
           <div className="pt-4">
             <Button
