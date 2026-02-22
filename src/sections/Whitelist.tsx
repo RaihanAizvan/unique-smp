@@ -68,7 +68,7 @@ export function Whitelist() {
                   
                   {/* Action button */}
                   {step.step === 1 && (
-                    <Button variant="primary" size="sm" href="https://discord.gg/uniquesmp">
+                    <Button variant="primary" size="sm" href="https://discord.gg/Tz4kHwJHek">
                       {step.action}
                     </Button>
                   )}

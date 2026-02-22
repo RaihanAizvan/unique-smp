@@ -70,7 +70,7 @@ export function Hero() {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Button variant="primary" size="lg" href="https://discord.gg/uniquesmp">
+          <Button variant="primary" size="lg" href="https://discord.gg/Tz4kHwJHek">
             {t.hero.cta.discord}
           </Button>
           <Button variant="outline" size="lg" onClick={() => {

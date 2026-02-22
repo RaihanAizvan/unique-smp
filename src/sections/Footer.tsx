@@ -58,7 +58,7 @@ export function Footer() {
                 {t.footer.links.whitelist}
               </a>
               <a
-                href="https://discord.gg/uniquesmp"
+                href="https://discord.gg/Tz4kHwJHek"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-neutral-400 hover:text-red-500 transition-colors duration-200"
@@ -78,7 +78,7 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">
               Join Our Community
             </h4>
-            <Button variant="primary" size="md" href="https://discord.gg/uniquesmp">
+            <Button variant="primary" size="md" href="https://discord.gg/Tz4kHwJHek">
               {t.footer.discord}
             </Button>
           </motion.div>
