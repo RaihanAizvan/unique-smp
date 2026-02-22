@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Users, ShoppingBag, ShieldCheck, Swords, Handshake } from 'lucide-react';
 import { content } from '../constants/content';
 import { Section } from '../components/Section';
 import { Card } from '../components/Card';
@@ -14,6 +15,15 @@ import { Card } from '../components/Card';
  */
 export function Rules() {
   const t = content;
+  
+  // Icon mapping using Lucide React icons
+  const iconMap: Record<string, any> = {
+    users: Users,
+    shop: ShoppingBag,
+    shield: ShieldCheck,
+    swords: Swords,
+    handshake: Handshake,
+  };
   
   return (
     <Section id="rules" background="secondary">
@@ -45,7 +55,12 @@ export function Rules() {
           >
             <Card hover glow>
               {/* Icon */}
-              <div className="text-4xl mb-4">{rule.icon}</div>
+              <div className="mb-4">
+                {(() => {
+                  const Icon = iconMap[rule.icon];
+                  return Icon ? <Icon className="w-10 h-10 text-red-600" strokeWidth={1.5} /> : null;
+                })()}
+              </div>
               
               {/* Title */}
               <h3 className="text-xl font-bold text-white mb-2">

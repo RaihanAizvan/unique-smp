@@ -64,27 +64,27 @@ export const content = {
         {
           title: 'Team Limit',
           description: 'Maximum 4 members per team for balanced gameplay',
-          icon: '👥',
+          icon: 'users',
         },
         {
           title: 'Shop Required',
           description: 'Every team must establish a shop at spawn',
-          icon: '🏪',
+          icon: 'shop',
         },
         {
           title: 'No Griefing',
           description: 'Respect others\' builds and claimed territories',
-          icon: '🚫',
+          icon: 'shield',
         },
         {
           title: 'Arena PvP Only',
           description: 'Combat restricted to designated arena with item betting',
-          icon: '⚔️',
+          icon: 'swords',
         },
         {
           title: 'Respect All',
           description: 'Maintain a friendly and inclusive community',
-          icon: '🤝',
+          icon: 'handshake',
         },
       ],
     },
