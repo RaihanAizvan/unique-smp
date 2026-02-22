@@ -101,7 +101,7 @@ export async function sendToDiscord(
       },
       body: JSON.stringify({
         username: 'Unique SMP',
-        avatar_url: 'https://i.imgur.com/AfFp7pu.png', // Optional: Add your server icon
+        avatar_url: 'https://cdn.discordapp.com/icons/1345659957579878430/a6bcd9344e8dd73fdf8da215e33f18fb.webp?size=80&quality=lossless', // Optional: Add your server icon
         embeds: [embed],
       }),
     });
