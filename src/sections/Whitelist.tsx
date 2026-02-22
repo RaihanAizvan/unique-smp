@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Section } from '../components/Section';
 import { Button } from '../components/Button';
 import { WhitelistForm } from '../components/WhitelistForm';
-import { useLanguage } from '../context/LanguageContext';
+import { content } from '../constants/content';
 
 /**
  * Whitelist Process Section
@@ -14,7 +14,7 @@ import { useLanguage } from '../context/LanguageContext';
  * - Discord webhook integration
  */
 export function Whitelist() {
-  const { t } = useLanguage();
+  const t = content;
   const [showForm, setShowForm] = useState(false);
 
   return (

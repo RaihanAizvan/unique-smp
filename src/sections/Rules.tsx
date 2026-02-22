@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
+import { content } from '../constants/content';
 import { Section } from '../components/Section';
 import { Card } from '../components/Card';
 
@@ -13,7 +13,7 @@ import { Card } from '../components/Card';
  * - Clean, readable layout
  */
 export function Rules() {
-  const { t } = useLanguage();
+  const t = content;
   
   return (
     <Section id="rules" background="secondary">
