@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
+import { content } from '../constants/content';
 import { Section } from '../components/Section';
 import { Card } from '../components/Card';
 
@@ -13,7 +13,7 @@ import { Card } from '../components/Card';
  * - Premium card hover effects
  */
 export function About() {
-  const { t } = useLanguage();
+  const t = content;
   
   // Icon mapping (using emojis for now, can be replaced with custom icons)
   const iconMap: Record<string, string> = {
