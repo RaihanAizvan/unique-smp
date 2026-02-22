@@ -14,7 +14,7 @@ import { FloatingBlocks } from '../components/FloatingBlocks';
  * - Red glow accents
  */
 export function Hero() {
-  const { t } = useLanguage();
+  const t = content;
   
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
