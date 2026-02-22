@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { validators } from '../utils/validation';
-import { sendToDiscord, WhitelistApplication } from '../utils/discord';
+import { sendToDiscord } from '../utils/discord';
+import type { WhitelistApplication } from '../utils/discord';
 
 interface FormErrors {
   minecraftUsername?: string;
