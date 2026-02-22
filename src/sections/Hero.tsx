@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useLanguage } from '../context/LanguageContext';
+import { content } from '../constants/content';
 import { Button } from '../components/Button';
 import { FloatingBlocks } from '../components/FloatingBlocks';
 
