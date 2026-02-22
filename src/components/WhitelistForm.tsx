@@ -26,6 +26,8 @@ export function WhitelistForm() {
     platform: 'Java Edition',
     reason: '',
     experience: '',
+    hasTeammates: false,
+    teammates: [],
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -48,6 +50,8 @@ export function WhitelistForm() {
         platform: 'Java Edition',
         reason: '',
         experience: '',
+        hasTeammates: false,
+        teammates: [],
       });
     }
   };
