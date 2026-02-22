@@ -4,6 +4,11 @@
  * Sends whitelist applications to Discord via webhook
  */
 
+export interface Teammate {
+  minecraftUsername: string;
+  discordUsername: string;
+}
+
 export interface WhitelistApplication {
   minecraftUsername: string;
   discordUsername: string;
@@ -11,6 +16,8 @@ export interface WhitelistApplication {
   platform: string;
   reason: string;
   experience: string;
+  hasTeammates: boolean;
+  teammates?: Teammate[];
 }
 
 /**
