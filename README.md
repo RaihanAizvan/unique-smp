@@ -1,5 +1,5 @@
 # Unique SMP Website
-
+Live - unique-smp.vercel.app
 A modern, production-ready website for the Unique SMP Minecraft server.
 
 ## 🎮 What is this?
