@@ -28,66 +28,68 @@ export async function sendToDiscord(
   webhookUrl: string
 ): Promise<{ success: boolean; error?: string }> {
   try {
-    // Create a rich embed for Discord
+    // Build applicant information section
+    const applicantInfo = [
+      `**Minecraft Username:** ${data.minecraftUsername}`,
+      `**Discord Username:** ${data.discordUsername}`,
+      `**Age:** ${data.age}`,
+      `**Platform:** ${data.platform}`,
+    ].join('\n');
+
+    // Build application details section
+    const applicationDetails = [
+      `**Why Join Unique SMP:**`,
+      data.reason,
+      '',
+      `**Minecraft Experience:**`,
+      data.experience,
+    ].join('\n');
+
+    // Build fields array
     const fields = [
       {
-        name: '🎯 Minecraft Username',
-        value: `\`${data.minecraftUsername}\``,
-        inline: true,
-      },
-      {
-        name: '💬 Discord Username',
-        value: `\`${data.discordUsername}\``,
-        inline: true,
-      },
-      {
-        name: '🎂 Age',
-        value: data.age,
-        inline: true,
-      },
-      {
-        name: '🎮 Platform',
-        value: data.platform,
-        inline: true,
-      },
-      {
-        name: '📝 Why Join?',
-        value: data.reason,
+        name: 'APPLICANT INFORMATION',
+        value: applicantInfo,
         inline: false,
       },
       {
-        name: '⛏️ Minecraft Experience',
-        value: data.experience,
+        name: 'APPLICATION DETAILS',
+        value: applicationDetails,
         inline: false,
       },
     ];
 
-    // Add teammates if present
+    // Add teammates section if present
     if (data.hasTeammates && data.teammates && data.teammates.length > 0) {
-      const teammatesText = data.teammates
-        .filter(t => t.minecraftUsername.trim() || t.discordUsername.trim())
-        .map((teammate, index) => {
-          const mc = teammate.minecraftUsername.trim() || 'Not provided';
-          const dc = teammate.discordUsername.trim() || 'Not provided';
-          return `**${index + 1}.** MC: \`${mc}\` | Discord: \`${dc}\``;
-        })
-        .join('\n');
+      const validTeammates = data.teammates.filter(
+        t => t.minecraftUsername.trim() || t.discordUsername.trim()
+      );
 
-      if (teammatesText) {
+      if (validTeammates.length > 0) {
+        const teammatesText = validTeammates
+          .map((teammate, index) => {
+            const mc = teammate.minecraftUsername.trim() || 'Not provided';
+            const dc = teammate.discordUsername.trim() || 'Not provided';
+            return `**Teammate ${index + 1}**\nMinecraft: ${mc}\nDiscord: ${dc}`;
+          })
+          .join('\n\n');
+
         fields.push({
-          name: '👥 Teammates',
-          value: teammatesText || 'None provided',
+          name: `TEAM MEMBERS (${validTeammates.length})`,
+          value: teammatesText,
           inline: false,
         });
       }
     }
 
     const embed = {
-      title: data.hasTeammates ? '🎮 New Team Whitelist Application' : '🎮 New Whitelist Application',
-      color: 0xDC2626, // Red-600 color
+      title: data.hasTeammates 
+        ? 'NEW TEAM WHITELIST APPLICATION' 
+        : 'NEW WHITELIST APPLICATION',
+      color: 0xDC2626, // Red color
       fields,
       footer: {
-        text: 'Unique SMP Whitelist System',
+        text: 'Unique SMP - Whitelist Management System',
       },
       timestamp: new Date().toISOString(),
     };
