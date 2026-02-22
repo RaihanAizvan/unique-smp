@@ -29,41 +29,63 @@ export async function sendToDiscord(
 ): Promise<{ success: boolean; error?: string }> {
   try {
     // Create a rich embed for Discord
+    const fields = [
+      {
+        name: '🎯 Minecraft Username',
+        value: `\`${data.minecraftUsername}\``,
+        inline: true,
+      },
+      {
+        name: '💬 Discord Username',
+        value: `\`${data.discordUsername}\``,
+        inline: true,
+      },
+      {
+        name: '🎂 Age',
+        value: data.age,
+        inline: true,
+      },
+      {
+        name: '🎮 Platform',
+        value: data.platform,
+        inline: true,
+      },
+      {
+        name: '📝 Why Join?',
+        value: data.reason,
+        inline: false,
+      },
+      {
+        name: '⛏️ Minecraft Experience',
+        value: data.experience,
+        inline: false,
+      },
+    ];
+
+    // Add teammates if present
+    if (data.hasTeammates && data.teammates && data.teammates.length > 0) {
+      const teammatesText = data.teammates
+        .filter(t => t.minecraftUsername.trim() || t.discordUsername.trim())
+        .map((teammate, index) => {
+          const mc = teammate.minecraftUsername.trim() || 'Not provided';
+          const dc = teammate.discordUsername.trim() || 'Not provided';
+          return `**${index + 1}.** MC: \`${mc}\` | Discord: \`${dc}\``;
+        })
+        .join('\n');
+
+      if (teammatesText) {
+        fields.push({
+          name: '👥 Teammates',
+          value: teammatesText || 'None provided',
+          inline: false,
+        });
+      }
+    }
+
     const embed = {
-      title: '🎮 New Whitelist Application',
+      title: data.hasTeammates ? '🎮 New Team Whitelist Application' : '🎮 New Whitelist Application',
       color: 0xDC2626, // Red-600 color
-      fields: [
-        {
-          name: '🎯 Minecraft Username',
-          value: `\`${data.minecraftUsername}\``,
-          inline: true,
-        },
-        {
-          name: '💬 Discord Username',
-          value: `\`${data.discordUsername}\``,
-          inline: true,
-        },
-        {
-          name: '🎂 Age',
-          value: data.age,
-          inline: true,
-        },
-        {
-          name: '🎮 Platform',
-          value: data.platform,
-          inline: true,
-        },
-        {
-          name: '📝 Why Join?',
-          value: data.reason,
-          inline: false,
-        },
-        {
-          name: '⛏️ Minecraft Experience',
-          value: data.experience,
-          inline: false,
-        },
-      ],
+      fields,
       footer: {
         text: 'Unique SMP Whitelist System',
       },
