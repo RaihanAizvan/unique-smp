@@ -1,5 +1,7 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
-import { content, Language, ContentKey } from '../constants/content';
+import { createContext, useContext, useState } from 'react';
+import type { ReactNode } from 'react';
+import { content } from '../constants/content';
+import type { Language, ContentKey } from '../constants/content';
 
 interface LanguageContextType {
   language: Language;

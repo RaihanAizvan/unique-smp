@@ -310,4 +310,4 @@ export const content = {
 } as const;
 
 export type Language = keyof typeof content;
-export type ContentKey = typeof content.en;
+export type ContentKey = (typeof content)[Language];

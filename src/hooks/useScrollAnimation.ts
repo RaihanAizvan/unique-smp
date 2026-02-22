@@ -11,9 +11,9 @@ export function useScrollAnimation() {
   useEffect(() => {
     // Enable smooth scrolling for all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
         e.preventDefault();
-        const targetId = (this as HTMLAnchorElement).getAttribute('href')?.substring(1);
+        const targetId = this.getAttribute('href')?.substring(1);
         if (targetId) {
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
