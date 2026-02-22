@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss'
+
 export default {
   content: [
     "./index.html",
@@ -31,8 +32,8 @@ export default {
       },
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'display': ['Montserrat', 'Inter', 'sans-serif'], // For headings with subtle modern feel
-        'minecraft': ['"Press Start 2P"', 'monospace'], // Pixel-inspired for minimal use
+        'display': ['Montserrat', 'Inter', 'sans-serif'],
+        'minecraft': ['"Press Start 2P"', 'monospace'],
       },
       fontSize: {
         'display-xl': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
@@ -61,4 +62,4 @@ export default {
     },
   },
   plugins: [],
-}
+} satisfies Config

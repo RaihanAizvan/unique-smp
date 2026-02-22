@@ -76,10 +76,11 @@ export function Rules() {
         <div className="relative aspect-video rounded-xl overflow-hidden border-2 border-neutral-800 shadow-2xl shadow-red-600/10">
           <iframe
             className="absolute inset-0 w-full h-full"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
             title="Server Rules"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            loading="lazy"
           />
         </div>
       </motion.div>
