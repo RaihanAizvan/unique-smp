@@ -154,5 +154,4 @@ export const content = {
       learnMore: 'Learn More',
       comingSoon: 'Coming Soon',
     },
-  },
 } as const;
