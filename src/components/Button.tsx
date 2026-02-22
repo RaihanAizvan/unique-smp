@@ -8,6 +8,8 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   className?: string;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 /**
@@ -27,6 +29,8 @@ export function Button({
   onClick,
   href,
   className = '',
+  disabled = false,
+  type = 'button',
 }: ButtonProps) {
   const baseStyles = 'font-semibold rounded-lg transition-all duration-300 cursor-pointer inline-block text-center';
   
@@ -48,13 +52,15 @@ export function Button({
   
   return (
     <MotionComponent
-      className={classes}
+      className={`${classes} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
       onClick={onClick}
       href={href}
       target={href ? '_blank' : undefined}
       rel={href ? 'noopener noreferrer' : undefined}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      disabled={!href && disabled ? disabled : undefined}
+      type={!href ? type : undefined}
+      whileHover={{ scale: disabled ? 1 : 1.05 }}
+      whileTap={{ scale: disabled ? 1 : 0.95 }}
       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
     >
       {children}
