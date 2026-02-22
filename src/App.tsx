@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { LanguageProvider } from './context/LanguageContext';
+import { LanguageToggle } from './components/LanguageToggle';
+import { Hero } from './sections/Hero';
+import { About } from './sections/About';
+import { Rules } from './sections/Rules';
+import { Whitelist } from './sections/Whitelist';
+import { CrossPlatform } from './sections/CrossPlatform';
+import { Footer } from './sections/Footer';
 
+/**
+ * Main App Component
+ * 
+ * Single-page layout with smooth scrolling sections
+ * - Language context wrapper
+ * - All sections in order
+ * - Fixed language toggle
+ * - Optimized for performance
+ */
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <LanguageProvider>
+      <div className="min-h-screen bg-black text-white">
+        {/* Language toggle - fixed position */}
+        <LanguageToggle />
+        
+        {/* All sections */}
+        <Hero />
+        <About />
+        <Rules />
+        <Whitelist />
+        <CrossPlatform />
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </LanguageProvider>
+  );
 }
 
-export default App
+export default App;
