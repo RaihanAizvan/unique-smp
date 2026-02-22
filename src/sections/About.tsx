@@ -16,14 +16,14 @@ import { Card } from '../components/Card';
 export function About() {
   const t = content;
   
-  // Icon mapping (using emojis for now, can be replaced with custom icons)
-  const iconMap: Record<string, string> = {
-    grass: '🌱',
-    shield: '🛡️',
-    mic: '🎤',
-    platform: '🎮',
-    team: '👥',
-    shop: '🏪',
+  // Icon mapping using Lucide React icons
+  const iconMap: Record<string, any> = {
+    grass: Pickaxe,
+    shield: Shield,
+    mic: MessageSquare,
+    platform: Gamepad2,
+    team: Users,
+    shop: ShoppingBag,
   };
   
   return (
@@ -56,8 +56,11 @@ export function About() {
           >
             <Card hover glow>
               {/* Icon */}
-              <div className="text-5xl mb-4">
-                {iconMap[feature.icon] || '⭐'}
+              <div className="mb-4">
+                {(() => {
+                  const Icon = iconMap[feature.icon];
+                  return Icon ? <Icon className="w-12 h-12 text-red-600" strokeWidth={1.5} /> : null;
+                })()}
               </div>
               
               {/* Title */}
