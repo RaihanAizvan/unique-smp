@@ -58,7 +58,7 @@ export function Rules() {
               <div className="mb-4">
                 {(() => {
                   const Icon = iconMap[rule.icon];
-                  return Icon ? <Icon className="w-10 h-10 text-red-600" strokeWidth={1.5} /> : null;
+                  return Icon ? <Icon className="w-10 h-10 text-purple-600" strokeWidth={1.5} /> : null;
                 })()}
               </div>
               

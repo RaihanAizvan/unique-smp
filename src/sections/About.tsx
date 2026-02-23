@@ -59,7 +59,7 @@ export function About() {
               <div className="mb-4">
                 {(() => {
                   const Icon = iconMap[feature.icon];
-                  return Icon ? <Icon className="w-12 h-12 text-red-600" strokeWidth={1.5} /> : null;
+                  return Icon ? <Icon className="w-12 h-12 text-purple-600" strokeWidth={1.5} /> : null;
                 })()}
               </div>
               
