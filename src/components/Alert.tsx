@@ -15,7 +15,7 @@ interface AlertProps {
 export function Alert({ type, children, onClose }: AlertProps) {
   const styles = {
     success: 'bg-green-900/50 border-green-500 text-green-100',
-    error: 'bg-red-900/50 border-red-500 text-red-100',
+    error: 'bg-purple-900/50 border-purple-500 text-purple-100',
     info: 'bg-blue-900/50 border-blue-500 text-blue-100',
   };
 

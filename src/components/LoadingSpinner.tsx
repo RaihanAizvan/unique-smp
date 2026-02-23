@@ -9,7 +9,7 @@ export function LoadingSpinner() {
   return (
     <div className="flex items-center justify-center space-x-2">
       <motion.div
-        className="w-3 h-3 bg-red-600 rounded-sm"
+        className="w-3 h-3 bg-purple-600 rounded-sm"
         animate={{
           scale: [1, 1.2, 1],
           rotate: [0, 180, 360],
@@ -21,7 +21,7 @@ export function LoadingSpinner() {
         }}
       />
       <motion.div
-        className="w-3 h-3 bg-red-600 rounded-sm"
+        className="w-3 h-3 bg-purple-600 rounded-sm"
         animate={{
           scale: [1, 1.2, 1],
           rotate: [0, 180, 360],
@@ -34,7 +34,7 @@ export function LoadingSpinner() {
         }}
       />
       <motion.div
-        className="w-3 h-3 bg-red-600 rounded-sm"
+        className="w-3 h-3 bg-purple-600 rounded-sm"
         animate={{
           scale: [1, 1.2, 1],
           rotate: [0, 180, 360],

@@ -28,10 +28,10 @@ export function FormTextarea({
       <div className="flex items-center justify-between mb-2">
         <label className="block text-sm font-semibold text-neutral-300">
           {label}
-          {props.required && <span className="text-red-500 ml-1">*</span>}
+          {props.required && <span className="text-purple-500 ml-1">*</span>}
         </label>
         {showCharCount && maxLength && (
-          <span className={`text-xs ${charCount > maxLength ? 'text-red-400' : 'text-neutral-500'}`}>
+          <span className={`text-xs ${charCount > maxLength ? 'text-purple-400' : 'text-neutral-500'}`}>
             {charCount}/{maxLength}
           </span>
         )}
@@ -41,11 +41,11 @@ export function FormTextarea({
         value={value}
         maxLength={maxLength}
         className={`w-full px-4 py-3 bg-neutral-900 border-2 ${
-          error ? 'border-red-500' : 'border-neutral-800'
-        } rounded-lg text-white placeholder-neutral-500 focus:outline-none focus:border-red-600 transition-colors duration-200 resize-none ${className}`}
+          error ? 'border-purple-500' : 'border-neutral-800'
+        } rounded-lg text-white placeholder-neutral-500 focus:outline-none focus:border-purple-600 transition-colors duration-200 resize-none ${className}`}
       />
       {error && (
-        <p className="mt-2 text-sm text-red-400 flex items-center gap-1">
+        <p className="mt-2 text-sm text-purple-400 flex items-center gap-1">
           <span>⚠</span>
           <span>{error}</span>
         </p>

@@ -35,9 +35,9 @@ export function Button({
   const baseStyles = 'font-semibold rounded-lg transition-all duration-300 cursor-pointer inline-block text-center';
   
   const variants = {
-    primary: 'bg-red-600 hover:bg-red-500 text-white shadow-lg shadow-red-600/30 hover:shadow-red-500/50',
+    primary: 'bg-purple-600 hover:bg-purple-500 text-white shadow-lg shadow-purple-600/30 hover:shadow-purple-500/50',
     secondary: 'bg-neutral-800 hover:bg-neutral-700 text-white',
-    outline: 'border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white',
+    outline: 'border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white',
   };
   
   const sizes = {

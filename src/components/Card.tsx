@@ -19,7 +19,7 @@ interface CardProps {
 export function Card({ children, className = '', hover = true, glow = false }: CardProps) {
   const baseStyles = 'bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-6';
   const hoverStyles = hover ? 'transition-all duration-300' : '';
-  const glowStyles = glow ? 'hover:border-red-600/50 hover:shadow-lg hover:shadow-red-600/20' : '';
+  const glowStyles = glow ? 'hover:border-purple-600/50 hover:shadow-lg hover:shadow-purple-600/20' : '';
   
   return (
     <motion.div

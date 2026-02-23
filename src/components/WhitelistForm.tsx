@@ -159,14 +159,14 @@ export function WhitelistForm() {
           {/* Platform */}
           <div className="w-full">
             <label className="block text-sm font-semibold text-neutral-300 mb-2">
-              Platform <span className="text-red-500 ml-1">*</span>
+              Platform <span className="text-purple-500 ml-1">*</span>
             </label>
             <select
               name="platform"
               value={formData.platform}
               onChange={handleChange}
               disabled={isSubmitting}
-              className="w-full px-4 py-3 bg-neutral-900 border-2 border-neutral-800 rounded-lg text-white focus:outline-none focus:border-red-600 transition-colors duration-200"
+              className="w-full px-4 py-3 bg-neutral-900 border-2 border-neutral-800 rounded-lg text-white focus:outline-none focus:border-purple-600 transition-colors duration-200"
               required
             >
               <option value="Java Edition">Java Edition</option>
@@ -211,7 +211,7 @@ export function WhitelistForm() {
                 checked={formData.hasTeammates}
                 onChange={(e) => handleTeammateToggle(e.target.checked)}
                 disabled={isSubmitting}
-                className="w-5 h-5 bg-neutral-900 border-2 border-neutral-800 rounded focus:ring-2 focus:ring-red-600 focus:outline-none cursor-pointer"
+                className="w-5 h-5 bg-neutral-900 border-2 border-neutral-800 rounded focus:ring-2 focus:ring-purple-600 focus:outline-none cursor-pointer"
               />
               <label htmlFor="hasTeammates" className="text-sm font-semibold text-neutral-300 cursor-pointer">
                 I'm applying with teammates (max 3)
@@ -238,7 +238,7 @@ export function WhitelistForm() {
                           type="button"
                           onClick={() => removeTeammate(index)}
                           disabled={isSubmitting}
-                          className="text-red-400 hover:text-red-300 text-sm font-semibold transition-colors"
+                          className="text-purple-400 hover:text-purple-300 text-sm font-semibold transition-colors"
                         >
                           Remove
                         </button>
@@ -272,7 +272,7 @@ export function WhitelistForm() {
                     type="button"
                     onClick={addTeammate}
                     disabled={isSubmitting}
-                    className="w-full py-3 bg-neutral-900 border-2 border-neutral-800 border-dashed rounded-lg text-neutral-400 hover:text-white hover:border-red-600 transition-all duration-200 font-semibold"
+                    className="w-full py-3 bg-neutral-900 border-2 border-neutral-800 border-dashed rounded-lg text-neutral-400 hover:text-white hover:border-purple-600 transition-all duration-200 font-semibold"
                   >
                     + Add Another Teammate
                   </button>
