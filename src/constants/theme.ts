@@ -4,12 +4,12 @@
  * Design Philosophy:
  * - Premium, cinematic gaming brand aesthetic
  * - Apple-like minimalism meets Minecraft voxel geometry
- * - Deep black base with glowing red accents
+ * - Deep black base with glowing purple/violet accents
  * - Clean hierarchy, generous spacing, high contrast
  * 
  * Color Psychology:
  * - Black/Charcoal: Premium, mysterious, immersive
- * - Red Accents: Energy, passion, YouTuber brand association
+ * - Purple/Violet Accents: Creativity, magic, premium quality
  * - Subtle gradients: Depth without noise
  */
 
@@ -22,12 +22,12 @@ export const colors = {
     elevated: '#1f1f1f',     // Hover states, cards
   },
   
-  // Red Accent System (YouTuber-inspired)
+  // Purple/Violet Accent System
   accent: {
-    primary: '#dc2626',      // Deep crimson - primary CTA
-    secondary: '#ef4444',    // Bright red - hover states
-    glow: '#ff0000',         // Pure red - glow effects
-    muted: '#991b1b',        // Dark red - subtle highlights
+    primary: '#9333EA',      // Deep purple - primary CTA
+    secondary: '#A855F7',    // Bright purple - hover states
+    glow: '#C084FC',         // Light purple - glow effects
+    muted: '#6B21A8',        // Dark purple - subtle highlights
   },
   
   // Neutral Grays
@@ -64,7 +64,7 @@ export const colors = {
   // Gradient Definitions
   gradients: {
     hero: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%)',
-    redGlow: 'radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, rgba(10, 10, 10, 0) 70%)',
+    purpleGlow: 'radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, rgba(10, 10, 10, 0) 70%)',
     card: 'linear-gradient(145deg, #1a1a1a 0%, #121212 100%)',
   },
 } as const;
