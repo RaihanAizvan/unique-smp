@@ -86,7 +86,7 @@ export async function sendToDiscord(
       title: data.hasTeammates 
         ? 'NEW TEAM WHITELIST APPLICATION' 
         : 'NEW WHITELIST APPLICATION',
-      color: 0xDC2626, // Red color
+      color: 0x9333EA, // Red color
       fields,
       footer: {
         text: 'Unique SMP - Whitelist Management System',
