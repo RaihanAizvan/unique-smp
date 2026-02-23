@@ -47,13 +47,13 @@ export function Footer() {
             <nav className="space-y-2">
               <a
                 href="#about"
-                className="block text-neutral-400 hover:text-red-500 transition-colors duration-200"
+                className="block text-neutral-400 hover:text-purple-500 transition-colors duration-200"
               >
                 {t.footer.links.rules}
               </a>
               <a
                 href="#whitelist"
-                className="block text-neutral-400 hover:text-red-500 transition-colors duration-200"
+                className="block text-neutral-400 hover:text-purple-500 transition-colors duration-200"
               >
                 {t.footer.links.whitelist}
               </a>
@@ -61,7 +61,7 @@ export function Footer() {
                 href="https://discord.gg/Tz4kHwJHek"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-neutral-400 hover:text-red-500 transition-colors duration-200"
+                className="block text-neutral-400 hover:text-purple-500 transition-colors duration-200"
               >
                 {t.footer.links.discord}
               </a>

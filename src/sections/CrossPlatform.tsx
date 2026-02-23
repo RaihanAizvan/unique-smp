@@ -43,7 +43,7 @@ export function CrossPlatform() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-8 hover:border-red-600/50 transition-all duration-300"
+          className="bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-8 hover:border-purple-600/50 transition-all duration-300"
         >
           {/* 3D Icon */}
           <div className="h-40 mb-6">
@@ -63,7 +63,7 @@ export function CrossPlatform() {
           <ul className="space-y-3">
             {t.crossPlatform.java.features.map((feature, index) => (
               <li key={index} className="flex items-center text-neutral-300">
-                <span className="text-red-500 mr-3">✓</span>
+                <span className="text-purple-500 mr-3">✓</span>
                 {feature}
               </li>
             ))}
@@ -113,7 +113,7 @@ export function CrossPlatform() {
         className="text-center"
       >
         <p className="text-2xl text-neutral-400 max-w-2xl mx-auto bg-neutral-900/30 backdrop-blur-sm border border-neutral-800 rounded-lg p-6">
-          <span className="text-red-500 font-semibold">✨ {t.crossPlatform.note}</span>
+          <span className="text-purple-500 font-semibold">✨ {t.crossPlatform.note}</span>
         </p>
       </motion.div>
     </Section>

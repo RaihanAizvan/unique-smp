@@ -88,7 +88,7 @@ export function Rules() {
           {t.rules.videoTitle}
         </h3>
         
-        <div className="relative aspect-video rounded-xl overflow-hidden border-2 border-neutral-800 shadow-2xl shadow-red-600/10">
+        <div className="relative aspect-video rounded-xl overflow-hidden border-2 border-neutral-800 shadow-2xl shadow-purple-600/10">
           <iframe
             className="absolute inset-0 w-full h-full"
             src="https://www.youtube.com/embed/NJCTRMK9phE?rel=0&modestbranding=1"

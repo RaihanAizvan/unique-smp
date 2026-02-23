@@ -47,7 +47,7 @@ export function Whitelist() {
             onClick={() => setShowForm(false)}
             className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
               !showForm
-                ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
+                ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30'
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
@@ -57,7 +57,7 @@ export function Whitelist() {
             onClick={() => setShowForm(true)}
             className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
               showForm
-                ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
+                ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30'
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
@@ -82,13 +82,13 @@ export function Whitelist() {
               >
                 {/* Connecting line (hidden on last item) */}
                 {index < t.whitelist.steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 bg-gradient-to-r from-red-600 to-neutral-800" />
+                  <div className="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 bg-gradient-to-r from-purple-600 to-neutral-800" />
                 )}
                 
                 {/* Step card */}
-                <div className="relative bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-6 hover:border-red-600/50 transition-all duration-300">
+                <div className="relative bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-6 hover:border-purple-600/50 transition-all duration-300">
                   {/* Step number */}
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl border-4 border-black">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl border-4 border-black">
                     {step.step}
                   </div>
                   
@@ -109,7 +109,7 @@ export function Whitelist() {
                     )}
                     
                     {step.step !== 1 && (
-                      <span className="text-red-500 font-semibold text-sm">
+                      <span className="text-purple-500 font-semibold text-sm">
                         {step.action}
                       </span>
                     )}
