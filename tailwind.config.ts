@@ -17,10 +17,10 @@ export default {
         'surface': '#1f1f1f',
         'surface-hover': '#282828',
         
-        // Red accent (deep crimson / glowing red)
-        'accent-red': '#dc2626',
-        'accent-red-glow': '#ef4444',
-        'accent-red-dark': '#991b1b',
+        // Purple/Violet accent
+        'accent-purple': '#9333ea',
+        'accent-purple-glow': '#a855f7',
+        'accent-purple-dark': '#6b21a8',
         
         // Muted colors
         'muted': '#6b7280',
@@ -51,8 +51,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px #dc2626, 0 0 10px #dc2626' },
-          '100%': { boxShadow: '0 0 10px #ef4444, 0 0 20px #ef4444, 0 0 30px #dc2626' },
+          '0%': { boxShadow: '0 0 5px #9333ea, 0 0 10px #9333ea' },
+          '100%': { boxShadow: '0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 30px #9333ea' },
         },
         fadeInUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
