@@ -79,14 +79,15 @@ export function About() {
           {t.about.features.map((feature, index) => {
             const Icon = iconMap[feature.icon];
             
-            // Different card sizes for visual interest
+            // Balanced card sizes for better layout
             const cardSizes = [
-              'md:col-span-1 lg:row-span-2', // Tall card
-              'md:col-span-1',
-              'md:col-span-1',
-              'md:col-span-2 lg:col-span-1',
-              'md:col-span-1',
-              'md:col-span-1',
+              'md:col-span-1', // Pure Vanilla
+              'md:col-span-1', // Land Claims
+              'md:col-span-1 lg:col-span-1', // Voice Chat
+              'md:col-span-1', // Cross-Platform
+              'md:col-span-1', // Team System
+              'md:col-span-1 lg:col-span-2', // Premium Shop (wider)
+              'md:col-span-1', // VIP Voice Channels
             ];
 
             return (
