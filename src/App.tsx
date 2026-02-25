@@ -1,3 +1,4 @@
+import { Header } from './components/Header';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
 import { Rules } from './sections/Rules';
@@ -15,6 +16,7 @@ import { Footer } from './sections/Footer';
 function App() {
   return (
     <div className="min-h-screen bg-black text-white">
+      <Header />
       <Hero />
       <About />
       <Rules />
