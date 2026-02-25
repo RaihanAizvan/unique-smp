@@ -1,19 +1,21 @@
-import { Suspense, useEffect } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring, useScroll } from 'framer-motion';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, Float, ContactShadows, OrbitControls } from '@react-three/drei';
 import { Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import { content } from '../constants/content';
 import { Section } from '../components/Section';
-import { Mesh, MeshStandardMaterial, Scene } from 'three';
+import { Mesh, MeshStandardMaterial, Scene, Group } from 'three';
 
 /**
  * Java Steve 3D Model
  * - Mouse drag rotation via OrbitControls
+ * - Scroll-based rotation
  * - Gentle float animation
  */
-function JavaModel() {
+function JavaModel({ scrollY }: { scrollY: number }) {
   const { scene } = useGLTF('/models/minecraft_steve_character_for_java.glb');
+  const groupRef = useRef<Group>(null);
 
   useEffect(() => {
     if (scene instanceof Scene) scene.background = null;
@@ -26,9 +28,18 @@ function JavaModel() {
     });
   }, [scene]);
 
+  useFrame(() => {
+    if (groupRef.current) {
+      // Scroll-based rotation
+      groupRef.current.rotation.y = scrollY * 0.003;
+    }
+  });
+
   return (
     <Float speed={1.2} floatIntensity={0.3} rotationIntensity={0}>
-      <primitive object={scene} scale={2} position={[0, -20, 0]} />
+      <group ref={groupRef}>
+        <primitive object={scene} scale={2} position={[0, -20, 0]} />
+      </group>
       <ContactShadows position={[0, -21, 0]} opacity={0.4} scale={20} blur={2.5} color="#9333ea" />
     </Float>
   );
@@ -37,10 +48,12 @@ function JavaModel() {
 /**
  * Bedrock Steve 3D Model
  * - Mouse drag rotation via OrbitControls
+ * - Scroll-based rotation
  * - Gentle float animation
  */
-function BedrockModel() {
+function BedrockModel({ scrollY }: { scrollY: number }) {
   const { scene } = useGLTF('/models/minecraft_steve_for_bedrock.glb');
+  const groupRef = useRef<Group>(null);
 
   useEffect(() => {
     if (scene instanceof Scene) scene.background = null;
@@ -53,9 +66,18 @@ function BedrockModel() {
     });
   }, [scene]);
 
+  useFrame(() => {
+    if (groupRef.current) {
+      // Opposite scroll direction for variety
+      groupRef.current.rotation.y = -scrollY * 0.003;
+    }
+  });
+
   return (
     <Float speed={1.2} floatIntensity={0.3} rotationIntensity={0}>
-      <primitive object={scene} scale={2} position={[0, -20, 0]} />
+      <group ref={groupRef}>
+        <primitive object={scene} scale={2} position={[0, -20, 0]} />
+      </group>
       <ContactShadows position={[0, -21, 0]} opacity={0.4} scale={20} blur={2.5} color="#7c3aed" />
     </Float>
   );
@@ -69,6 +91,14 @@ function BedrockModel() {
  */
 export function CrossPlatform() {
   const t = content;
+
+  // Scroll-based rotation
+  const { scrollY: rawScroll } = useScroll();
+  const [scrollVal, setScrollVal] = useState(0);
+
+  useEffect(() => {
+    return rawScroll.on('change', (v) => setScrollVal(v));
+  }, [rawScroll]);
 
   // Mouse parallax tracking
   const mouseX = useMotionValue(0);
