@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, XCircle, RotateCcw, Trophy, Brain } from 'lucide-react';
 import { rulesQuiz } from '../constants/quiz';
-import type { QuizQuestion } from '../constants/quiz';
 import { Button } from './Button';
 
 /**
