@@ -15,11 +15,11 @@ interface MinecraftBlockProps {
  * - Slow rotation animation
  * - Optional color customization
  * - Optimized geometry (BoxGeometry)
- * - Red glow emission for accent blocks
+ * - Purple glow emission for accent blocks
  */
 export function MinecraftBlock({ 
   position, 
-  color = '#dc2626',
+  color = '#9333ea',
   speed = 0.5 
 }: MinecraftBlockProps) {
   const meshRef = useRef<Mesh>(null);
