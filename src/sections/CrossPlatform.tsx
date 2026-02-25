@@ -20,21 +20,12 @@ function JavaModel() {
       scene.background = null;
     }
     scene.traverse((child) => {
-      console.log('[Java GLB] mesh:', child.name, child.type);
+      // Java model: Object_2 is the background plane, hide it
+      if (child.name === 'Object_2') {
+        child.visible = false;
+      }
       if (child instanceof Mesh) {
         const mat = child.material as MeshStandardMaterial;
-        // Hide non-character meshes
-        if (child.name.toLowerCase().includes('background') ||
-            child.name.toLowerCase().includes('plane') ||
-            child.name.toLowerCase().includes('bg') ||
-            child.name.toLowerCase().includes('ground') ||
-            child.name.toLowerCase().includes('floor') ||
-            child.name.toLowerCase().includes('circle') ||
-            child.name.toLowerCase().includes('base') ||
-            child.name.toLowerCase().includes('shadow') ||
-            child.name.toLowerCase().includes('platform')) {
-          child.visible = false;
-        }
         if (mat) {
           mat.transparent = true;
           mat.depthWrite = true;
@@ -69,20 +60,12 @@ function BedrockModel() {
       scene.background = null;
     }
     scene.traverse((child) => {
-      console.log('[Bedrock GLB] mesh:', child.name, child.type);
+      // Bedrock model: 'back' and 'Object_9' are background elements
+      if (child.name === 'back' || child.name === 'Object_9') {
+        child.visible = false;
+      }
       if (child instanceof Mesh) {
         const mat = child.material as MeshStandardMaterial;
-        if (child.name.toLowerCase().includes('background') ||
-            child.name.toLowerCase().includes('plane') ||
-            child.name.toLowerCase().includes('bg') ||
-            child.name.toLowerCase().includes('ground') ||
-            child.name.toLowerCase().includes('floor') ||
-            child.name.toLowerCase().includes('circle') ||
-            child.name.toLowerCase().includes('base') ||
-            child.name.toLowerCase().includes('shadow') ||
-            child.name.toLowerCase().includes('platform')) {
-          child.visible = false;
-        }
         if (mat) {
           mat.transparent = true;
           mat.depthWrite = true;
