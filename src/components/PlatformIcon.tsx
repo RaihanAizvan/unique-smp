@@ -22,7 +22,7 @@ export function PlatformIcon({ type }: PlatformIconProps) {
     }
   });
   
-  const color = type === 'java' ? '#ef4444' : '#3b82f6';
+  const color = type === 'java' ? '#a855f7' : '#8b5cf6';
   
   return (
     <mesh ref={meshRef}>
