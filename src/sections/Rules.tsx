@@ -81,6 +81,37 @@ export function Rules() {
           </div>
         </motion.div>
 
+        {/* YouTube Video - Always Visible */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              {t.rules.videoTitle}
+            </h3>
+            <p className="text-neutral-400 text-lg">
+              Watch our comprehensive rules walkthrough
+            </p>
+          </div>
+
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-purple-600/30 shadow-2xl shadow-purple-900/20">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 via-violet-600/20 to-purple-600/20 blur-xl" />
+            
+            <iframe
+              className="relative z-10 w-full h-full"
+              src="https://www.youtube.com/embed/NJCTRMK9phE?rel=0&modestbranding=1"
+              title="Unique SMP Server Rules"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+        </motion.div>
+
         {/* Tab Content */}
         <motion.div
           key={activeTab}
@@ -145,36 +176,6 @@ export function Rules() {
                   );
                 })}
               </div>
-
-              {/* YouTube Video */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="text-center mb-8">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                    {t.rules.videoTitle}
-                  </h3>
-                  <p className="text-neutral-400 text-lg">
-                    Watch our comprehensive rules walkthrough
-                  </p>
-                </div>
-
-                <div className="relative aspect-video rounded-3xl overflow-hidden border border-purple-600/30 shadow-2xl shadow-purple-900/20">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 via-violet-600/20 to-purple-600/20 blur-xl" />
-                  
-                  <iframe
-                    className="relative z-10 w-full h-full"
-                    src="https://www.youtube.com/embed/NJCTRMK9phE?rel=0&modestbranding=1"
-                    title="Unique SMP Server Rules"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                  />
-                </div>
-              </motion.div>
             </div>
           ) : (
             <div>
