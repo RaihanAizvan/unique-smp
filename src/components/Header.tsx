@@ -57,12 +57,25 @@ export function Header() {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center cursor-pointer"
+            className="flex items-center cursor-pointer group"
             onClick={() => scrollToSection('hero')}
           >
-            <div className="text-2xl md:text-3xl font-black tracking-tighter">
-              <span className="text-white">Unique</span>
-              <span className="text-purple-500"> SMP</span>
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-purple-600/20 blur-xl group-hover:bg-purple-500/30 transition-all duration-300" />
+              
+              {/* Logo text */}
+              <div className="relative flex items-baseline gap-1">
+                <span className="text-2xl md:text-3xl font-black tracking-tight text-white" style={{ fontFamily: 'Righteous, sans-serif' }}>
+                  Unique
+                </span>
+                <span className="text-2xl md:text-3xl font-black tracking-wider bg-gradient-to-r from-purple-400 via-purple-500 to-violet-500 bg-clip-text text-transparent" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  SMP
+                </span>
+              </div>
+              
+              {/* Underline accent */}
+              <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-purple-600 to-violet-600 transition-all duration-300 mt-1" />
             </div>
           </motion.div>
 
