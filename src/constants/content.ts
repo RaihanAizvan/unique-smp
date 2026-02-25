@@ -34,8 +34,10 @@ export const content = {
         },
         {
           title: 'Voice Chat',
-          description: 'Immersive in-game voice communication with your team',
+          description: 'Immersive in-game voice communication powered by Simple Voice Chat',
           icon: 'mic',
+          link: 'https://modrinth.com/plugin/simple-voice-chat',
+          linkText: 'Download Plugin',
         },
         {
           title: 'Cross-Platform',
@@ -48,9 +50,14 @@ export const content = {
           icon: 'team',
         },
         {
-          title: 'Shop Economy',
-          description: 'Build your empire with a player-driven marketplace',
+          title: 'Premium Shop Economy',
+          description: 'Build your empire with our exclusive player-driven premium marketplace',
           icon: 'shop',
+        },
+        {
+          title: 'VIP Voice Channels',
+          description: 'Exclusive VIP voice channels for premium members with crystal-clear quality',
+          icon: 'vip',
         },
       ],
     },

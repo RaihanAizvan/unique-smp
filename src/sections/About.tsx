@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Pickaxe, MessageSquare, Shield, Gamepad2, Users, ShoppingBag } from 'lucide-react';
+import { Pickaxe, MessageSquare, Shield, Gamepad2, Users, ShoppingBag, Crown } from 'lucide-react';
 import { content } from '../constants/content';
 import { Section } from '../components/Section';
+import { Button } from '../components/Button';
 
 /**
  * About Section - Redesigned
@@ -23,6 +24,7 @@ export function About() {
     platform: Gamepad2,
     team: Users,
     shop: ShoppingBag,
+    vip: Crown,
   };
 
   // Animation variants
@@ -127,6 +129,19 @@ export function About() {
                     <p className="text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors duration-300">
                       {feature.description}
                     </p>
+
+                    {/* Download link if available */}
+                    {(feature as any).link && (
+                      <div className="mt-6">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          href={(feature as any).link}
+                        >
+                          {(feature as any).linkText}
+                        </Button>
+                      </div>
+                    )}
 
                     {/* Animated accent line */}
                     <div className="mt-6 h-1 w-0 group-hover:w-16 bg-gradient-to-r from-purple-600 to-violet-600 transition-all duration-500 rounded-full" />
