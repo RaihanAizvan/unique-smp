@@ -147,7 +147,7 @@ export const content = {
     footer: {
       tagline: 'A Kerala-based Minecraft community',
       discord: 'Join Discord',
-      copyright: '© 2025 Unique SMP. All rights reserved.',
+      copyright: '© 2026 Unique SMP. All rights reserved.',
       links: {
         rules: 'Rules',
         whitelist: 'Whitelist',
