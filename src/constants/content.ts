@@ -56,7 +56,7 @@ export const content = {
         },
         {
           title: 'VIP Voice Channels',
-          description: 'Exclusive VIP voice channels for premium members with crystal-clear quality',
+          description: 'Exclusive VIP voice channels for members',
           icon: 'vip',
         },
       ],
