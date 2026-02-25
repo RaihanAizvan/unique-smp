@@ -14,7 +14,7 @@ import { RulesQuiz } from '../components/RulesQuiz';
  */
 export function Rules() {
   const t = content;
-  const [activeTab, setActiveTab] = useState<'rules' | 'quiz'>('rules');
+  const [activeTab, setActiveTab] = useState<'rules' | 'quiz'>('quiz');
 
   // Icon mapping
   const iconMap: Record<string, any> = {
@@ -56,18 +56,6 @@ export function Rules() {
         >
           <div className="inline-flex p-1.5 bg-neutral-900/80 backdrop-blur-sm border border-neutral-800 rounded-2xl">
             <button
-              onClick={() => setActiveTab('rules')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                activeTab === 'rules'
-                  ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30'
-                  : 'text-neutral-400 hover:text-white'
-              }`}
-            >
-              <BookOpen className="w-5 h-5" />
-              <span>Learn Rules</span>
-            </button>
-            
-            <button
               onClick={() => setActiveTab('quiz')}
               className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                 activeTab === 'quiz'
@@ -77,6 +65,18 @@ export function Rules() {
             >
               <GraduationCap className="w-5 h-5" />
               <span>Test Knowledge</span>
+            </button>
+            
+            <button
+              onClick={() => setActiveTab('rules')}
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                activeTab === 'rules'
+                  ? 'bg-purple-600 text-white shadow-lg shadow-purple-600/30'
+                  : 'text-neutral-400 hover:text-white'
+              }`}
+            >
+              <BookOpen className="w-5 h-5" />
+              <span>Learn Rules</span>
             </button>
           </div>
         </motion.div>
