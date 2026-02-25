@@ -18,7 +18,7 @@ export function CrossPlatform() {
   const t = content;
   
   return (
-    <Section id="crossplatform" background="secondary">
+    <Section id="platform" background="secondary">
       {/* Section header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
