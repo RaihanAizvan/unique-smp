@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { content } from '../constants/content';
 import { Button } from '../components/Button';
 import { FloatingBlocks } from '../components/FloatingBlocks';
+import { AnimatedBackground } from '../components/AnimatedBackground';
+import { ParticleField } from '../components/ParticleField';
 
 /**
  * Hero Section
@@ -19,10 +21,10 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-950 to-black">
-        {/* Red glow accent */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-3xl" />
-      </div>
+      <AnimatedBackground />
+      
+      {/* Particle field */}
+      <ParticleField />
       
       {/* 3D Floating blocks */}
       <FloatingBlocks />
