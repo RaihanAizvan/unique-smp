@@ -13,7 +13,7 @@ import { Mesh, MeshStandardMaterial, Scene, Group } from 'three';
  * - Scroll-based rotation
  * - Gentle float animation
  */
-function JavaModel({ scrollY }: { scrollY: number }) {
+function JavaModel({ scrollY, mouseX, mouseY }: { scrollY: number; mouseX: number; mouseY: number }) {
   const { scene } = useGLTF('/models/minecraft_steve_character_for_java.glb');
   const groupRef = useRef<Group>(null);
 
@@ -30,8 +30,11 @@ function JavaModel({ scrollY }: { scrollY: number }) {
 
   useFrame(() => {
     if (groupRef.current) {
-      // Scroll-based rotation
-      groupRef.current.rotation.y = scrollY * 0.003;
+      // Smooth lerp to target rotation
+      const targetY = scrollY * 0.003 + mouseX * 0.3;
+      const targetX = mouseY * 0.15;
+      groupRef.current.rotation.y += (targetY - groupRef.current.rotation.y) * 0.08;
+      groupRef.current.rotation.x += (targetX - groupRef.current.rotation.x) * 0.08;
     }
   });
 
@@ -51,7 +54,7 @@ function JavaModel({ scrollY }: { scrollY: number }) {
  * - Scroll-based rotation
  * - Gentle float animation
  */
-function BedrockModel({ scrollY }: { scrollY: number }) {
+function BedrockModel({ scrollY, mouseX, mouseY }: { scrollY: number; mouseX: number; mouseY: number }) {
   const { scene } = useGLTF('/models/minecraft_steve_for_bedrock.glb');
   const groupRef = useRef<Group>(null);
 
@@ -68,8 +71,10 @@ function BedrockModel({ scrollY }: { scrollY: number }) {
 
   useFrame(() => {
     if (groupRef.current) {
-      // Opposite scroll direction for variety
-      groupRef.current.rotation.y = -scrollY * 0.003;
+      const targetY = -scrollY * 0.003 + mouseX * 0.3;
+      const targetX = mouseY * 0.15;
+      groupRef.current.rotation.y += (targetY - groupRef.current.rotation.y) * 0.08;
+      groupRef.current.rotation.x += (targetX - groupRef.current.rotation.x) * 0.08;
     }
   });
 
@@ -109,7 +114,8 @@ export function CrossPlatform() {
     });
   }, [scrollYProgress]);
 
-  // Mouse parallax tracking
+  // Mouse tracking for 3D model rotation
+  const [mouse3D, setMouse3D] = useState({ x: 0, y: 0 });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
@@ -121,11 +127,14 @@ export function CrossPlatform() {
     const y = (e.clientY - rect.top) / rect.height - 0.5;
     mouseX.set(x * 15);
     mouseY.set(y * 10);
+    // Pass normalized -0.5 to 0.5 values to 3D models
+    setMouse3D({ x, y });
   };
 
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
+    setMouse3D({ x: 0, y: 0 });
   };
 
   const canvasStyle = {
@@ -195,7 +204,7 @@ export function CrossPlatform() {
                 <pointLight position={[-4, 2, -2]} intensity={1.2} color="#7c3aed" />
                 <spotLight position={[0, 10, 2]} intensity={2} color="#ffffff" angle={0.3} />
                 <Suspense fallback={null}>
-                  <JavaModel scrollY={scrollVal} />
+                  <JavaModel scrollY={scrollVal} mouseX={mouse3D.x} mouseY={mouse3D.y} />
                 </Suspense>
                 <OrbitControls
                   enableZoom={false}
@@ -263,7 +272,7 @@ export function CrossPlatform() {
                 <pointLight position={[-4, 2, -2]} intensity={1.2} color="#6d28d9" />
                 <spotLight position={[0, 10, 2]} intensity={2} color="#ffffff" angle={0.3} />
                 <Suspense fallback={null}>
-                  <BedrockModel scrollY={scrollVal} />
+                  <BedrockModel scrollY={scrollVal} mouseX={mouse3D.x} mouseY={mouse3D.y} />
                 </Suspense>
                 <OrbitControls
                   enableZoom={false}
