@@ -16,18 +16,23 @@ function JavaModel() {
   const ref = useRef<Group>(null);
 
   useEffect(() => {
-    // Remove background and fix all mesh materials
     if (scene instanceof Scene) {
       scene.background = null;
     }
     scene.traverse((child) => {
+      console.log('[Java GLB] mesh:', child.name, child.type);
       if (child instanceof Mesh) {
         const mat = child.material as MeshStandardMaterial;
+        // Hide non-character meshes
         if (child.name.toLowerCase().includes('background') ||
             child.name.toLowerCase().includes('plane') ||
             child.name.toLowerCase().includes('bg') ||
             child.name.toLowerCase().includes('ground') ||
-            child.name.toLowerCase().includes('floor')) {
+            child.name.toLowerCase().includes('floor') ||
+            child.name.toLowerCase().includes('circle') ||
+            child.name.toLowerCase().includes('base') ||
+            child.name.toLowerCase().includes('shadow') ||
+            child.name.toLowerCase().includes('platform')) {
           child.visible = false;
         }
         if (mat) {
@@ -64,13 +69,18 @@ function BedrockModel() {
       scene.background = null;
     }
     scene.traverse((child) => {
+      console.log('[Bedrock GLB] mesh:', child.name, child.type);
       if (child instanceof Mesh) {
         const mat = child.material as MeshStandardMaterial;
         if (child.name.toLowerCase().includes('background') ||
             child.name.toLowerCase().includes('plane') ||
             child.name.toLowerCase().includes('bg') ||
             child.name.toLowerCase().includes('ground') ||
-            child.name.toLowerCase().includes('floor')) {
+            child.name.toLowerCase().includes('floor') ||
+            child.name.toLowerCase().includes('circle') ||
+            child.name.toLowerCase().includes('base') ||
+            child.name.toLowerCase().includes('shadow') ||
+            child.name.toLowerCase().includes('platform')) {
           child.visible = false;
         }
         if (mat) {
