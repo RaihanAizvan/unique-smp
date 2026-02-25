@@ -96,16 +96,15 @@ export function CrossPlatform() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start center', 'end center'],
+    offset: ['start start', 'end end'],
   });
   const [scrollVal, setScrollVal] = useState(0);
 
   useEffect(() => {
-    // scrollYProgress goes 0→1 as section scrolls through viewport
-    // Map to rotation: 0 at section center = face camera
+    // 0 = section top at viewport top (nav click lands here)
+    // rotation = 0 at start, increases as you scroll through
     return scrollYProgress.on('change', (v) => {
-      // Center (0.5) = 0 rotation, before = negative, after = positive
-      setScrollVal((v - 0.5) * 600);
+      setScrollVal(v * 500);
     });
   }, [scrollYProgress]);
 
