@@ -114,28 +114,28 @@ export function CrossPlatform() {
     });
   }, [scrollYProgress]);
 
-  // Mouse tracking for 3D model rotation
+  // Mouse tracking on window level for full-screen pointer tracking
   const [mouse3D, setMouse3D] = useState({ x: 0, y: 0 });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    mouseX.set(x * 15);
-    mouseY.set(y * 10);
-    // Pass normalized -0.5 to 0.5 values to 3D models
-    setMouse3D({ x, y });
-  };
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      // Normalize to -0.5 → 0.5 based on full window
+      const x = e.clientX / window.innerWidth - 0.5;
+      const y = e.clientY / window.innerHeight - 0.5;
+      mouseX.set(x * 15);
+      mouseY.set(y * 10);
+      setMouse3D({ x, y });
+    };
 
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-    setMouse3D({ x: 0, y: 0 });
-  };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  const handleMouseLeave = () => {};
 
   const canvasStyle = {
     background: 'transparent',
@@ -171,8 +171,6 @@ export function CrossPlatform() {
         <div
           ref={sectionRef}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
         >
 
           {/* Java Edition */}
