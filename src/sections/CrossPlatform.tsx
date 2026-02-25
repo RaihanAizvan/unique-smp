@@ -42,8 +42,8 @@ function JavaModel() {
 
   return (
     <Float speed={1.2} floatIntensity={0.4} rotationIntensity={0}>
-      <primitive ref={ref} object={scene} scale={1.4} position={[0, -1.2, 0]} />
-      <ContactShadows position={[0, -1.5, 0]} opacity={0.4} scale={4} blur={2.5} color="#9333ea" />
+      <primitive ref={ref} object={scene} scale={0.6} position={[0, -0.5, 0]} />
+      <ContactShadows position={[0, -0.8, 0]} opacity={0.4} scale={4} blur={2.5} color="#9333ea" />
     </Float>
   );
 }
@@ -82,8 +82,8 @@ function BedrockModel() {
 
   return (
     <Float speed={1.2} floatIntensity={0.4} rotationIntensity={0}>
-      <primitive ref={ref} object={scene} scale={1.4} position={[0, -1.2, 0]} />
-      <ContactShadows position={[0, -1.5, 0]} opacity={0.4} scale={4} blur={2.5} color="#7c3aed" />
+      <primitive ref={ref} object={scene} scale={0.6} position={[0, -0.5, 0]} />
+      <ContactShadows position={[0, -0.8, 0]} opacity={0.4} scale={4} blur={2.5} color="#7c3aed" />
     </Float>
   );
 }
@@ -136,7 +136,7 @@ export function CrossPlatform() {
             {/* 3D Character - transparent background */}
             <div className="w-full h-80 md:h-96" style={{ background: 'transparent' }}>
               <Canvas
-                camera={{ position: [0, 2, 14], fov: 28 }}
+                camera={{ position: [0, 1, 8], fov: 20 }}
                 gl={{ alpha: true, antialias: true }}
                 style={{ background: 'transparent' }}
               >
@@ -187,7 +187,7 @@ export function CrossPlatform() {
             {/* 3D Character - transparent background */}
             <div className="w-full h-80 md:h-96" style={{ background: 'transparent' }}>
               <Canvas
-                camera={{ position: [0, 2, 14], fov: 28 }}
+                camera={{ position: [0, 1, 8], fov: 20 }}
                 gl={{ alpha: true, antialias: true }}
                 style={{ background: 'transparent' }}
               >
