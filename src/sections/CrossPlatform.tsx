@@ -1,7 +1,7 @@
 import { Suspense, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, Float, ContactShadows } from '@react-three/drei';
+import { useGLTF, Float, ContactShadows, OrbitControls } from '@react-three/drei';
 import { Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import { content } from '../constants/content';
 import { Section } from '../components/Section';
@@ -42,7 +42,7 @@ function JavaModel() {
 
   return (
     <Float speed={1.2} floatIntensity={0.4} rotationIntensity={0}>
-      <primitive ref={ref} object={scene} scale={0.6} position={[0, -0.5, 0]} />
+      <primitive ref={ref} object={scene} scale={2} position={[0, -20, 0]} />
       <ContactShadows position={[0, -0.8, 0]} opacity={0.4} scale={4} blur={2.5} color="#9333ea" />
     </Float>
   );
@@ -82,7 +82,8 @@ function BedrockModel() {
 
   return (
     <Float speed={1.2} floatIntensity={0.4} rotationIntensity={0}>
-      <primitive ref={ref} object={scene} scale={0.6} position={[0, -0.5, 0]} />
+      <primitive ref={ref} object={scene} scale={2} position={[0, -20, 0]} />
+
       <ContactShadows position={[0, -0.8, 0]} opacity={0.4} scale={4} blur={2.5} color="#7c3aed" />
     </Float>
   );
@@ -136,7 +137,7 @@ export function CrossPlatform() {
             {/* 3D Character - transparent background */}
             <div className="w-full h-80 md:h-96" style={{ background: 'transparent' }}>
               <Canvas
-                camera={{ position: [0, 1, 8], fov: 20 }}
+                camera={{ position: [0, 0, 50], fov: 50 }}
                 gl={{ alpha: true, antialias: true }}
                 style={{ background: 'transparent' }}
               >
@@ -187,7 +188,7 @@ export function CrossPlatform() {
             {/* 3D Character - transparent background */}
             <div className="w-full h-80 md:h-96" style={{ background: 'transparent' }}>
               <Canvas
-                camera={{ position: [0, 1, 8], fov: 20 }}
+                camera={{ position: [0, 0, 50], fov: 50 }}
                 gl={{ alpha: true, antialias: true }}
                 style={{ background: 'transparent' }}
               >
