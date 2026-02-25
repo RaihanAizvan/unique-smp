@@ -135,7 +135,6 @@ export function CrossPlatform() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
-  const handleMouseLeave = () => {};
 
   const canvasStyle = {
     background: 'transparent',
