@@ -42,17 +42,28 @@ export function Footer() {
                 transition={{ duration: 0.5 }}
               >
                 {/* Logo */}
-                <div className="mb-6">
-                  <div className="text-3xl font-black tracking-tight">
-                    <span className="text-white" style={{ fontFamily: 'Righteous, sans-serif' }}>
-                      Unique
-                    </span>
-                    <span className="bg-gradient-to-r from-purple-400 to-violet-500 bg-clip-text text-transparent" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                      {' '}SMP
-                    </span>
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  className="mb-8 group cursor-pointer"
+                  onClick={() => scrollToSection('hero')}
+                >
+                  <div className="relative">
+                    {/* Glow */}
+                    <div className="absolute -inset-2 bg-purple-600/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    <div className="relative">
+                      <div className="text-4xl md:text-5xl font-black tracking-tight leading-none">
+                        <span className="text-white" style={{ fontFamily: 'Righteous, sans-serif' }}>
+                          Unique
+                        </span>
+                        <span className="bg-gradient-to-r from-purple-400 via-purple-500 to-violet-500 bg-clip-text text-transparent" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                          {' '}SMP
+                        </span>
+                      </div>
+                      <div className="h-1.5 w-16 group-hover:w-24 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full mt-3 transition-all duration-300" />
+                    </div>
                   </div>
-                  <div className="h-1 w-16 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full mt-2" />
-                </div>
+                </motion.div>
 
                 <p className="text-neutral-400 mb-6 leading-relaxed">
                   {t.footer.tagline}
