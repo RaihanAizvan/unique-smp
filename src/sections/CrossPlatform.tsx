@@ -185,7 +185,7 @@ export function CrossPlatform() {
                 <pointLight position={[-4, 2, -2]} intensity={1.2} color="#7c3aed" />
                 <spotLight position={[0, 10, 2]} intensity={2} color="#ffffff" angle={0.3} />
                 <Suspense fallback={null}>
-                  <JavaModel />
+                  <JavaModel scrollY={scrollVal} />
                 </Suspense>
                 <OrbitControls
                   enableZoom={false}
@@ -253,7 +253,7 @@ export function CrossPlatform() {
                 <pointLight position={[-4, 2, -2]} intensity={1.2} color="#6d28d9" />
                 <spotLight position={[0, 10, 2]} intensity={2} color="#ffffff" angle={0.3} />
                 <Suspense fallback={null}>
-                  <BedrockModel />
+                  <BedrockModel scrollY={scrollVal} />
                 </Suspense>
                 <OrbitControls
                   enableZoom={false}
