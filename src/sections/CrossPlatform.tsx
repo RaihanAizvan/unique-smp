@@ -1,11 +1,10 @@
-import { Suspense, useRef, useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { useGLTF, Float, ContactShadows, OrbitControls } from '@react-three/drei';
 import { Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import { content } from '../constants/content';
 import { Section } from '../components/Section';
-import type { Group } from 'three';
 import { Mesh, MeshStandardMaterial, Scene } from 'three';
 
 /**
