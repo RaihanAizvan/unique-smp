@@ -1,6 +1,7 @@
 import { Header } from './components/Header';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
+import { RulesVideo } from './sections/RulesVideo';
 import { Rules } from './sections/Rules';
 import { Whitelist } from './sections/Whitelist';
 import { CrossPlatform } from './sections/CrossPlatform';
@@ -19,6 +20,7 @@ function App() {
       <Header />
       <Hero />
       <About />
+      <RulesVideo />
       <Rules />
       <Whitelist />
       <CrossPlatform />
