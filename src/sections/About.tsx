@@ -41,10 +41,6 @@ export function About() {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
     },
   };
 
@@ -75,6 +71,7 @@ export function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
+          transition={{ staggerChildren: 0.1, delayChildren: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {t.about.features.map((feature, index) => {
@@ -94,6 +91,7 @@ export function About() {
               <motion.div
                 key={index}
                 variants={itemVariants}
+                transition={{ duration: 0.6 }}
                 whileHover={{ scale: 1.02, y: -5 }}
                 className={`group relative ${cardSizes[index]}`}
               >
