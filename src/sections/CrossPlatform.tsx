@@ -92,13 +92,22 @@ function BedrockModel({ scrollY }: { scrollY: number }) {
 export function CrossPlatform() {
   const t = content;
 
-  // Scroll-based rotation
-  const { scrollY: rawScroll } = useScroll();
+  // Scroll-based rotation relative to section
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start center', 'end center'],
+  });
   const [scrollVal, setScrollVal] = useState(0);
 
   useEffect(() => {
-    return rawScroll.on('change', (v) => setScrollVal(v));
-  }, [rawScroll]);
+    // scrollYProgress goes 0→1 as section scrolls through viewport
+    // Map to rotation: 0 at section center = face camera
+    return scrollYProgress.on('change', (v) => {
+      // Center (0.5) = 0 rotation, before = negative, after = positive
+      setScrollVal((v - 0.5) * 600);
+    });
+  }, [scrollYProgress]);
 
   // Mouse parallax tracking
   const mouseX = useMotionValue(0);
@@ -151,6 +160,7 @@ export function CrossPlatform() {
 
         {/* Characters Side by Side */}
         <div
+          ref={sectionRef}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
