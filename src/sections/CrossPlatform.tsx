@@ -1,4 +1,4 @@
-import { Suspense, useRef } from 'react';
+import { Suspense, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, Float, ContactShadows } from '@react-three/drei';
@@ -6,6 +6,7 @@ import { Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import { content } from '../constants/content';
 import { Section } from '../components/Section';
 import type { Group } from 'three';
+import { Mesh, MeshStandardMaterial } from 'three';
 
 /**
  * Java Steve 3D Model
@@ -13,6 +14,27 @@ import type { Group } from 'three';
 function JavaModel() {
   const { scene } = useGLTF('/models/minecraft_steve_character_for_java.glb');
   const ref = useRef<Group>(null);
+
+  useEffect(() => {
+    // Remove any background/plane meshes and fix transparency
+    scene.traverse((child) => {
+      if (child instanceof Mesh) {
+        const mat = child.material as MeshStandardMaterial;
+        // Hide flat background plane meshes (detected by large scale or name)
+        if (child.name.toLowerCase().includes('background') ||
+            child.name.toLowerCase().includes('plane') ||
+            child.name.toLowerCase().includes('bg') ||
+            child.name.toLowerCase().includes('ground')) {
+          child.visible = false;
+        }
+        if (mat) {
+          mat.transparent = true;
+          mat.depthWrite = true;
+        }
+      }
+    });
+    scene.background = null;
+  }, [scene]);
 
   useFrame((state) => {
     if (ref.current) {
@@ -34,6 +56,25 @@ function JavaModel() {
 function BedrockModel() {
   const { scene } = useGLTF('/models/minecraft_steve_for_bedrock.glb');
   const ref = useRef<Group>(null);
+
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (child instanceof Mesh) {
+        const mat = child.material as MeshStandardMaterial;
+        if (child.name.toLowerCase().includes('background') ||
+            child.name.toLowerCase().includes('plane') ||
+            child.name.toLowerCase().includes('bg') ||
+            child.name.toLowerCase().includes('ground')) {
+          child.visible = false;
+        }
+        if (mat) {
+          mat.transparent = true;
+          mat.depthWrite = true;
+        }
+      }
+    });
+    scene.background = null;
+  }, [scene]);
 
   useFrame((state) => {
     if (ref.current) {
