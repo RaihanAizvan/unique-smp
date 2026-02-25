@@ -6,7 +6,7 @@ import { Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import { content } from '../constants/content';
 import { Section } from '../components/Section';
 import type { Group } from 'three';
-import { Mesh, MeshStandardMaterial } from 'three';
+import { Mesh, MeshStandardMaterial, Scene } from 'three';
 
 /**
  * Java Steve 3D Model
@@ -16,15 +16,18 @@ function JavaModel() {
   const ref = useRef<Group>(null);
 
   useEffect(() => {
-    // Remove any background/plane meshes and fix transparency
+    // Remove background and fix all mesh materials
+    if (scene instanceof Scene) {
+      scene.background = null;
+    }
     scene.traverse((child) => {
       if (child instanceof Mesh) {
         const mat = child.material as MeshStandardMaterial;
-        // Hide flat background plane meshes (detected by large scale or name)
         if (child.name.toLowerCase().includes('background') ||
             child.name.toLowerCase().includes('plane') ||
             child.name.toLowerCase().includes('bg') ||
-            child.name.toLowerCase().includes('ground')) {
+            child.name.toLowerCase().includes('ground') ||
+            child.name.toLowerCase().includes('floor')) {
           child.visible = false;
         }
         if (mat) {
@@ -33,7 +36,6 @@ function JavaModel() {
         }
       }
     });
-    scene.background = null;
   }, [scene]);
 
   useFrame((state) => {
@@ -58,13 +60,17 @@ function BedrockModel() {
   const ref = useRef<Group>(null);
 
   useEffect(() => {
+    if (scene instanceof Scene) {
+      scene.background = null;
+    }
     scene.traverse((child) => {
       if (child instanceof Mesh) {
         const mat = child.material as MeshStandardMaterial;
         if (child.name.toLowerCase().includes('background') ||
             child.name.toLowerCase().includes('plane') ||
             child.name.toLowerCase().includes('bg') ||
-            child.name.toLowerCase().includes('ground')) {
+            child.name.toLowerCase().includes('ground') ||
+            child.name.toLowerCase().includes('floor')) {
           child.visible = false;
         }
         if (mat) {
@@ -73,7 +79,6 @@ function BedrockModel() {
         }
       }
     });
-    scene.background = null;
   }, [scene]);
 
   useFrame((state) => {
