@@ -228,7 +228,7 @@ export function Footer() {
 
               {/* Credits */}
               <div className="flex items-center gap-2 text-neutral-500 text-sm">
-                <span>Made by</span>
+                <span>Designed and developed by</span>
                 <a
                   href="https://muhammedraihan.com"
                   target="_blank"
