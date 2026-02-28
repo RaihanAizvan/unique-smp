@@ -46,6 +46,12 @@ export async function sendToDiscord(
       data.experience,
     ].join('\n');
 
+    const copyLine = `${data.minecraftUsername} | ${data.discordUsername}`;
+    const usernamesBlock = [
+      `Minecraft: ${data.minecraftUsername}`,
+      `Discord: ${data.discordUsername}`,
+    ];
+
     // Build fields array
     const fields = [
       {
@@ -59,9 +65,13 @@ export async function sendToDiscord(
         inline: false,
       },
       {
-        name: 'COPY USERNAMES',
-        value: `Minecraft: \`${data.minecraftUsername}\`\nDiscord: \`${data.discordUsername}\``,
-
+        name: 'COPY LINE',
+        value: `\`${copyLine}\``,
+        inline: false,
+      },
+      {
+        name: 'ALL USERNAMES (COPY BLOCK)',
+        value: `\`\`\`\n${usernamesBlock.join('\n')}\n\`\`\``,
         inline: false,
       },
     ];
