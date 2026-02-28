@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Clock, ExternalLink, Heart } from 'lucide-react';
+import { MapPin, Mail, Clock, ExternalLink } from 'lucide-react';
 import { content } from '../constants/content';
 import { Button } from '../components/Button';
 
