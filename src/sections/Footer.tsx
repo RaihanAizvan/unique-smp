@@ -226,11 +226,17 @@ export function Footer() {
                 <span>{t.footer.copyright}</span>
               </div>
 
-              {/* Made with love */}
+              {/* Credits */}
               <div className="flex items-center gap-2 text-neutral-500 text-sm">
-                <span>Made with</span>
-                <Heart className="w-4 h-4 text-purple-500 fill-purple-500" />
-                <span>by the Unique SMP Team</span>
+                <span>Made by</span>
+                <a
+                  href="https://muhammedraihan.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-400 hover:text-purple-300 transition-colors"
+                >
+                  Raihan
+                </a>
               </div>
             </motion.div>
           </div>
