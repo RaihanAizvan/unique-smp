@@ -77,6 +77,7 @@ export async function sendToDiscord(
           .map((teammate, index) => {
             const mc = teammate.minecraftUsername.trim() || 'Not provided';
             const dc = teammate.discordUsername.trim() || 'Not provided';
+            usernamesBlock.push(`Teammate ${index + 1}: ${mc} | ${dc}`);
             return `**Teammate ${index + 1}**\nMinecraft: \`${mc}\`\nDiscord: \`${dc}\``;
           })
           .join('\n\n');
