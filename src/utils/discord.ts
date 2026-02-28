@@ -30,8 +30,9 @@ export async function sendToDiscord(
   try {
     // Build applicant information section
     const applicantInfo = [
-      `**Minecraft Username:** \\`${data.minecraftUsername}\\``,
-      `**Discord Username:** \\`${data.discordUsername}\\``,
+      `**Minecraft Username:** \`${data.minecraftUsername}\``,
+      `**Discord Username:** \`${data.discordUsername}\``,
+
       `**Age:** ${data.age}`,
       `**Platform:** ${data.platform}`,
     ].join('\n');
@@ -59,7 +60,8 @@ export async function sendToDiscord(
       },
       {
         name: 'COPY USERNAMES',
-        value: `Minecraft: \\`${data.minecraftUsername}\\`\nDiscord: \\`${data.discordUsername}\\``,
+        value: `Minecraft: \`${data.minecraftUsername}\`\nDiscord: \`${data.discordUsername}\``,
+
         inline: false,
       },
     ];
@@ -75,7 +77,7 @@ export async function sendToDiscord(
           .map((teammate, index) => {
             const mc = teammate.minecraftUsername.trim() || 'Not provided';
             const dc = teammate.discordUsername.trim() || 'Not provided';
-            return `**Teammate ${index + 1}**\nMinecraft: \\`${mc}\\`\nDiscord: \\`${dc}\\``;
+            return `**Teammate ${index + 1}**\nMinecraft: \`${mc}\`\nDiscord: \`${dc}\``;
           })
           .join('\n\n');
 
